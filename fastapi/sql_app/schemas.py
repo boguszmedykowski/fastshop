@@ -48,4 +48,4 @@ class Product(ProductBase):
     id: int
 
     class Config:
-        orm_mode = False
+        orm_mode = True

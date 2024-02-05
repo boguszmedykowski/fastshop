@@ -60,8 +60,13 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 
 @app.get("/products/", response_model=list[schemas.Product])
 def read_products(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    products = crud.get_items(db, skip=skip, limit=limit)
+    products = crud.get_products(db, skip=skip, limit=limit)
     return products
+
+
+@app.post("/products/", response_model=schemas.Product)
+def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)):
+    return crud.create_product(db=db, product=product)
 
 
 app.add_middleware(
