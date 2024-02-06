@@ -2,7 +2,7 @@
     <div>
       <h2>Zarejestruj</h2>
       <form @submit.prevent="register">
-        <input type="text" v-model="username" placeholder="Username" />
+        <input type="text" v-model="email" placeholder="Email" />
         <input type="password" v-model="password" placeholder="Password" />
         <button type="submit">Zarejestruj</button>
       </form>
@@ -15,7 +15,7 @@
     name: 'UserRegister',
     data() {
       return {
-        username: '',
+        email: '',
         password: '',
         errorMessage: '',
         showSnackbar: false,
@@ -26,7 +26,7 @@
       async register() {
         try {
           const response = await this.$axios.post('/users/', {
-            username: this.username,
+            email: this.email,
             password: this.password
           });
           console.log(response.data);

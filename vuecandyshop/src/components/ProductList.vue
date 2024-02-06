@@ -25,10 +25,10 @@ export default {
     },
     methods: {
         fetchProducts() {
-            this.$axios.get('/products')
+            this.$axios.get('/products/')
                 .then(response => {
                     // Przekształcanie odpowiedzi, aby zawierała tylko produkty z klucza 'results'
-                    this.products = response.data.results.map(product => ({ ...product, quantity: 1 }));
+                    this.products = response.data.map(product => ({ ...product, quantity: 1 }));
                 })
                 .catch(error => {
                     console.error('Błąd przy pobieraniu produktów:', error);

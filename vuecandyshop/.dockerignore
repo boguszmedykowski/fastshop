@@ -27,3 +27,4 @@ LICENSE
 Dockerfile
 .docker/
 instance/
+venv/
